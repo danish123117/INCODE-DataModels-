@@ -1,0 +1,39 @@
+--- 
+components: 
+  schemas:
+    EmgFrequencyDomainFeatures:
+      description: 'Data model represents the frequency domain features or EMG signal'
+      properties:
+        timeStamp:
+          description: 'timestamp of the the current value'
+          type: string
+        medianFrequencyState:
+          description: 'Measures quality of the data point, '
+          type: array
+        meanFrequencyState:
+          description: 'list of EMG signal values corresponding to each channel'
+          type: array
+        meanPowerFrequencyState: 
+          description: 'the sequential order or position of a data reading transmitted by the EMG sensor'
+          type: array
+        zeroCrossingFrequencyState: 
+          description: 'the sequential order or position of a data reading transmitted by the EMG sensor'
+          type: array       
+info: 
+  description: "This represents the data model for frequency domain features extracted from EMG signals in context of INCODE-HEU project"
+  title: 'EMG Frequency Domain Features'
+  version: "1.0.0"
+openapi: "3.0.0"
+
+# These paths are merely representative.
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      responses: 
+        ? "200"
+        : 
+          description:  OK
+          content: 
+            application/ld+json: 
+              schema: 
+                type: object
