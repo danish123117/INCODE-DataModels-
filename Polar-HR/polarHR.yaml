@@ -1,0 +1,54 @@
+--- 
+components: 
+  schemas:
+    PolarH10HeartratePayload:
+      description: 'Data model represents the Polar H10 sensor data model for heart rate topic payload'
+      properties:
+        clientId:
+          description: 'Client ID'
+          type: 'string'
+
+        deviceId:
+          description: 'Device ID'
+          type: 'string'
+
+        sessionId:
+         description: 'Session ID'
+         type: 'integer'
+
+        timeStamp:
+         description: 'Unix timestamp'
+         type: 'integer'
+
+        hr:
+         description: 'Heart rate'
+         type: 'integer'
+
+        hrv:
+         description: 'Heart rate variability'
+         type: 'number'
+
+        rr:
+          description: 'rr interval - array length 1 or 2'
+          type: 'array'
+          items:
+            type: 'integer'
+
+info: 
+  description: "This represents the data model of Polar H10 payload for hr topic developed in context of INCODE-HEU project"
+  title: 'Polar H10 HR topic payload'
+  version: "1.0.0"
+openapi: "3.0.0"
+
+# These paths are merely representative.
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      responses: 
+        ? "200"
+        : 
+          description:  OK
+          content: 
+            application/ld+json: 
+              schema: 
+                type: object
